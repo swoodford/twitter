@@ -1,10 +1,9 @@
-language: bash
-
-before_script:
-    - curl -L "http://downloads.sourceforge.net/shunit2/shunit2-2.0.3.tgz" | tar zx
+language: python
+python:
+  - "2.7"
 
 script:
-    - bash equality_test.sh
+    - nosetests
 
 notifications: 
   email: 
