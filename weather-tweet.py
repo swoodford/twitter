@@ -30,4 +30,4 @@ lat = lat.strip()
 long = long.strip()
 
 # Tweet weather and IP-geolocation
-api.update_status(status='#NYC #weather '+weather+'', lat=(lat), long=(long))
+api.update_status(status='#RaspberryPi #NYC #weather '+weather+'', lat=(lat), long=(long))
