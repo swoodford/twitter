@@ -7,7 +7,7 @@
 import sys
 import os
 from twython import Twython
-
+import twitter_api_creds
 
 # Set Twitter Credentials from environment variables
 CONSUMER_KEY = os.getenv("CONSUMER_KEY")
@@ -15,7 +15,7 @@ CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
 ACCESS_KEY = os.getenv("ACCESS_KEY")
 ACCESS_SECRET = os.getenv("ACCESS_SECRET")
 
-api = Twython(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET) 
+api = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
 
 # Tweet
 api.update_status(status=sys.argv[1][:140])

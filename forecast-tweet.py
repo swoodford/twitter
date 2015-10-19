@@ -4,9 +4,9 @@
 # This script will tweet current NYC weather forecast and IP-geolocation
 # Requires Twython, API credentials set as env vars, seperate getweather.sh script
 
-import sys
 import os
 from twython import Twython
+import twitter_api_creds
 
 # Set Credentials from environment variables
 CONSUMER_KEY = os.getenv("CONSUMER_KEY")
@@ -14,7 +14,7 @@ CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
 ACCESS_KEY = os.getenv("ACCESS_KEY")
 ACCESS_SECRET = os.getenv("ACCESS_SECRET")
 
-api = Twython(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET) 
+api = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
 
 cmd1 = 'bash getforecast1.sh'
 forecast1 = os.popen(cmd1).readline()
@@ -33,7 +33,7 @@ lat = lat.strip()
 long = long.strip()
 
 # Tweet forecast part 1 and IP-geolocation
-api.update_status(status=''+forecast2+'', lat=(lat), long=(long))
+api.update_status(status='' + forecast2 + '', lat=(lat), long=(long))
 
 # Tweet hashtags, forecast part 2 and IP-geolocation
-api.update_status(status='#NYC #Weather #Forecast '+forecast1+'', lat=(lat), long=(long))
+api.update_status(status='#NYC #Weather #Forecast ' + forecast1 + '', lat=(lat), long=(long))

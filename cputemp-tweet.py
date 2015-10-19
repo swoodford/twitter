@@ -4,10 +4,10 @@
 # This script will tweet your current Raspberry Pi CPU temperature, date, time and ip-geolocation
 # Requires Twython, API credentials set as env vars
 
-import sys
 import os
 import time
 from twython import Twython
+import twitter_api_creds
 
 # Set Credentials from environment variables
 CONSUMER_KEY = os.getenv("CONSUMER_KEY")
@@ -15,7 +15,7 @@ CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
 ACCESS_KEY = os.getenv("ACCESS_KEY")
 ACCESS_SECRET = os.getenv("ACCESS_SECRET")
 
-api = Twython(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET) 
+api = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
 
 cmd = 'awk \'{printf("%.1f °F\\n",$1*1.8/1e3)}\' /sys/class/thermal/thermal_zone0/temp'
 temp = os.popen(cmd).readline()
@@ -33,4 +33,4 @@ lat = lat.strip()
 long = long.strip()
 
 # Tweet with CPU temp, date, time and ip-geolocation
-api.update_status(status='My current #RaspberryPi CPU temperature is '+temp+' on '+time+'', lat=(lat), long=(long))
+api.update_status(status='My current #RaspberryPi CPU temperature is ' + temp + ' on ' + time + '', lat=(lat), long=(long))

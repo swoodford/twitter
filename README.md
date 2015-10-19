@@ -14,5 +14,5 @@ A collection of scripts for performing various actions with Twitter, mostly usin
 - **install-twython.sh** Install Twython, a Twitter API Python library
 - **ip-tweet.py** Tweet Raspberry Pi IP Address, date, time and IP-based geolocation
 - **status-tweet.py** Tweet the text that is passed as an argument
-- **twitter-api-creds.py** Sets Twitter API credentials as environment variables
+- **twitter_api_creds.py** Sets Twitter API credentials as environment variables
 - **weather-tweet.py** Tweet current NYC weather conditions and IP-based geolocation
