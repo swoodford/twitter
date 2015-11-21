@@ -16,11 +16,12 @@ ACCESS_SECRET = os.getenv("ACCESS_SECRET")
 
 api = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
 
-cmd = 'top -b -n 1 | head -n 5 | convert -fill green -background black label:@- top.png'
+# Get report from top with cpu and memory usage and generate image
+cmd = "top -b -n 1 | head -n 5 | sed 's/%/\\%/g' | convert -size 600x100 -fill green -background black label:@- top.png"
 console = os.popen(cmd).readline()
 
-# Take a photo from the camera
-photo = open('top.png', 'rb')
+# Open the image
+image = open('top.png', 'rb')
 
 # Get geolocation using IP address
 getlat = 'curl -s http://whatismycountry.com/ | sed -n \'s/.*Coordinates \\(.*\\)<.*/\\1/p\' | cut -d \' \' -f1'
@@ -32,6 +33,5 @@ long = os.popen(getlong).readline()
 lat = lat.strip()
 long = long.strip()
 
-# Tweet with photo and geolocation
-api.update_status_with_media(media=photo, status='#RaspberryPi #Linux #cpu #memory #usage #uptime #Twython ' + time.strftime("%c"), lat=(lat), long=(long))
-
+# Tweet with image and geolocation
+api.update_status_with_media(media=image, status='#RaspberryPi #Linux #cpu #memory #usage #uptime #Twython ' + time.strftime("%c"), lat=(lat), long=(long))
