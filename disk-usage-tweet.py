@@ -16,7 +16,7 @@ ACCESS_SECRET = os.getenv("ACCESS_SECRET")
 
 api = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
 
-cmd = 'df -H | convert -fill green -background black label:@- df.png'
+cmd = "df -Th --exclude-type=tmpfs --exclude-type=devtmpfs | sed 's/%/\\%/g' | convert -size 800x100 -fill green -background black label:@- df.png"
 console = os.popen(cmd).readline()
 
 # Take a photo from the camera
@@ -33,4 +33,4 @@ lat = lat.strip()
 long = long.strip()
 
 # Tweet with photo and geolocation
-api.update_status_with_media(media=photo, status='#RaspberryPi #Linux #cpu #memory #usage #uptime #Twython ' + time.strftime("%c"), lat=(lat), long=(long))
+api.update_status_with_media(media=photo, status='#RaspberryPi #Linux #filesystem #disk #usage #freespace #Twython ' + time.strftime("%c"), lat=(lat), long=(long))
