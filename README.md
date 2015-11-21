@@ -6,6 +6,7 @@ A collection of scripts for performing various actions with Twitter, mostly usin
 [![Build Status](https://travis-ci.org/swoodford/twitter.svg?branch=master)](https://travis-ci.org/swoodford/twitter)
 
 - **camera-tweet.py** Tweet an image from the Raspberry Pi camera along with the current date, time and IP-based geolocation
+- **cpu-memory-usage-tweet.py** Tweet an image from the output of the top command along with the current date and time and IP-based geolocation
 - **cputemp-tweet.py** Tweet your current Raspberry Pi CPU temperature along with the current date, time and IP-based geolocation
 - **forecast-tweet.py** Tweet current NYC weather forecast and IP-based geolocation
 - **getforecast1.sh** Get current NYC weather forecast and abbreviate as much as possible for Twitter (part 1)
