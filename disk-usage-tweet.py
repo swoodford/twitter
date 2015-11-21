@@ -16,11 +16,12 @@ ACCESS_SECRET = os.getenv("ACCESS_SECRET")
 
 api = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
 
+# Get report on file system disk space usage and generate image
 cmd = "df -Th --exclude-type=tmpfs --exclude-type=devtmpfs | sed 's/%/\\%/g' | convert -size 800x100 -fill green -background black label:@- df.png"
 console = os.popen(cmd).readline()
 
-# Take a photo from the camera
-photo = open('df.png', 'rb')
+# Open the image
+image = open('df.png', 'rb')
 
 # Get geolocation using IP address
 getlat = 'curl -s http://whatismycountry.com/ | sed -n \'s/.*Coordinates \\(.*\\)<.*/\\1/p\' | cut -d \' \' -f1'
@@ -32,5 +33,5 @@ long = os.popen(getlong).readline()
 lat = lat.strip()
 long = long.strip()
 
-# Tweet with photo and geolocation
-api.update_status_with_media(media=photo, status='#RaspberryPi #Linux #filesystem #disk #usage #freespace #Twython ' + time.strftime("%c"), lat=(lat), long=(long))
+# Tweet with image and geolocation
+api.update_status_with_media(media=image, status='#RaspberryPi #Linux #filesystem #disk #usage #freespace #Twython ' + time.strftime("%c"), lat=(lat), long=(long))
