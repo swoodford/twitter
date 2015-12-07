@@ -15,6 +15,7 @@ A collection of scripts for performing various actions with Twitter, mostly usin
 - **getweather.sh** Get current NYC weather and abbreviate as much as possible for Twitter
 - **install-twython.sh** Install Twython, a Twitter API Python library
 - **ip-tweet.py** Tweet Raspberry Pi IP Address
+- **os-tweet.py** Tweet your current Raspberry Pi OS version details
 - **status-tweet.py** Tweet the text that is passed as an argument
 - **twitter_api_creds.py** Sets Twitter API credentials as environment variables
 - **weather-tweet.py** Tweet current NYC weather conditions
