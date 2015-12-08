@@ -33,4 +33,4 @@ lat = lat.strip()
 long = long.strip()
 
 # Tweet with CPU temp, date, time and ip-geolocation
-api.update_status(status='My current #RaspberryPi CPU temperature is ' + temp + ' on ' + time + '', lat=(lat), long=(long))
+api.update_status(status='My current #RaspberryPi #CPU #temperature is ' + temp + ' on ' + time + '', lat=(lat), long=(long))
