@@ -4,8 +4,8 @@
 
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install python-setuptools -y
+sudo apt-get install -y python-setuptools python3-oauth python3-oauth2client python3-oauthlib python3-requests-oauthlib
 sudo easy_install pip
-sudo pip install twython
+sudo pip install --upgrade twython
 
-echo "Twython Installed."
+python -c "import twython" && echo "Twython Installed." || echo "Failure installing Twython."
