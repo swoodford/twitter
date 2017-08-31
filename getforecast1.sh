@@ -6,13 +6,17 @@
 LOCATION=nyc
 
 # Get weather conditions, in imperial units, without preamble or indentation
-weather $LOCATION --imperial -q -f | tail -n 25 | head -n 7 | \
+weather $LOCATION --imperial -q -f | \
 # Remove new line breaks
 sed ':a;N;$!ba;s/\n/ /g' | \
 # Replace three periods with a space
 sed -r 's#\.{3}#\ #g' | \
 # Remove multiple spaces
-sed -r 's/(\s?\.)//g' | \
+# sed -r 's/(\s?\.)//g' | \
+# Remove caching message
+cut -c134- | \
+# Remove alerts for zone message
+cut -d '(' -f1 | \
 # Abbreviations
 sed s#IN\ EFFECT\ ##g | \
 sed s#Temperature#Temp#g | \
