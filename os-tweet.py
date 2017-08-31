@@ -23,8 +23,8 @@ cmd2 = 'date'
 time = os.popen(cmd2).readline()
 
 # Get geolocation using IP address
-getlat = 'curl -s http://whatismycountry.com/ | sed -n \'s/.*Coordinates \\(.*\\)<.*/\\1/p\' | cut -d \' \' -f1'
-getlong = 'curl -s http://whatismycountry.com/ | sed -n \'s/.*Coordinates \\(.*\\)<.*/\\1/p\' | cut -d \' \' -f2'
+getlat = 'curl -s https://whatismycountry.com/ | sed -n \'s/.*Coordinates \\(.*\\)<.*/\\1/p\' | cut -d \' \' -f1'
+getlong = 'curl -s https://whatismycountry.com/ | sed -n \'s/.*Coordinates \\(.*\\)<.*/\\1/p\' | cut -d \' \' -f2'
 
 lat = os.popen(getlat).readline()
 long = os.popen(getlong).readline()
