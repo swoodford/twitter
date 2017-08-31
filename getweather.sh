@@ -15,4 +15,5 @@ sed s#degrees#deg.#g | \
 sed s#Relative\ Humidity#Humid.#g | \
 sed s#conditions#cond.#g | \
 sed s#gusting#gusts#g | \
-sed s#Windchill#Windch.#g
+sed s#Windchill#Windch.#g | \
+rev | cut -d ] -f1 | rev
