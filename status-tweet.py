@@ -2,7 +2,7 @@
 
 # This script will tweet the text that is passed as an argument
 # Requires Twython, API credentials set as env vars
-# Usage: python tweet-status.py 'Hello Everyone, this is my Raspberry Pi tweeting you more nonsense'
+# Usage: python status-tweet.py "Hello Everyone, this is my Raspberry Pi tweeting you more nonsense"
 
 import sys
 import os
